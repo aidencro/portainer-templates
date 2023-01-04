@@ -7600,6 +7600,40 @@
 			}
 			],
 			"restart_policy": "unless-stopped"
+		},
+		{
+			"type": 1,
+			"title": "Uptime-Kuma",
+			"name": "Uptime-Kuma",
+			"note": "",
+			"description": "It is a self-hosted monitoring tool like Uptime Robot",
+			"platform": "linux",
+			"logo": "https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg",
+			"image": "louislam/uptime-kuma:1",
+			"env": [
+				{
+					"name": "PUID",
+					"label": "PUID",
+					"default": "1024",
+					"description": "for UserID"
+				},
+				{
+					"name": "PGID",
+					"label": "PGID",
+					"default": "100",
+					"description": "for GroupID"
+				}
+			],
+			"ports": [
+				"3001:3001/tcp"
+			],
+			"volumes": [
+			{
+				"container": "/app/data",
+				"bind": "/volume1/docker/uptime-kuma/data"
+			}
+			],
+			"restart_policy": "unless-stopped"
 		}
 	]
 }
