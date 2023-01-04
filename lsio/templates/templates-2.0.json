@@ -7605,11 +7605,11 @@
 			"type": 1,
 			"title": "Uptime-Kuma",
 			"name": "Uptime-Kuma",
-			"note": "",
+			"note": "Uptime-Kuma self hosted monitoring tool.",
 			"description": "It is a self-hosted monitoring tool like Uptime Robot",
 			"platform": "linux",
 			"logo": "https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg",
-			"image": "louislam/uptime-kuma:1",
+			"image": "louislam/uptime-kuma:latest",
 			"env": [
 				{
 					"name": "PUID",
