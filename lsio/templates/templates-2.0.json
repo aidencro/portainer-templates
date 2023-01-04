@@ -7634,6 +7634,128 @@
 			}
 			],
 			"restart_policy": "unless-stopped"
-		}
+		},
+		{
+			"type": 1,
+			"title": "AppSmith - Community Edition",
+			"name": "AppSmith- Community Edition",
+			"note": "Appsmith is an open-source platform to build, deploy, and maintain internal apps. You can build anything from simple CRUD apps, admin panels, dashboards to custom business apps and complicated multi-step workflows.",
+			"description": "Appsmith is a lowcode internal application development tool.",
+			"platform": "linux",
+			"logo": "https://images.ctfassets.net/lpvian6u6i39/1jd2XxNKXpW0eMapVYV6mk/86657f7414fcf1780ba7740ef3485be3/61531b23c347e41e24a8423e_Logo.svg",
+			"image": "appsmith/appsmith-ce",
+			"env": [
+				{
+					"name": "PUID",
+					"label": "PUID",
+					"default": "1024",
+					"description": "for UserID"
+				},
+				{
+					"name": "PGID",
+					"label": "PGID",
+					"default": "100",
+					"description": "for GroupID"
+				}
+			],
+			"ports": [
+				"80:80/tcp",
+				"443:443/tcp"
+			],
+			"volumes": [
+			{
+				"container": "/appsmith-stacks",
+				"bind": "/volume1/docker/appsmith/stacks"
+			}
+			],
+			"restart_policy": "unless-stopped"
+		},
+		{
+			"type": 1,
+			"title": "Percona",
+			"name": "Percona",
+			"note": "Percona Server for MySQL is a distribution of the MySQL relational database management system created by Percona",
+			"description": "Percona Server for MySQL is an open source relational database management system (RDBMS). It is a free, fully compatible drop in replacement for Oracle MySQL. The software includes a number of scalability, availability, security and backup features only available in MySQL's commercial Enterprise edition.[2] The software includes XtraDB, an enhanced distribution of the InnoDB Storage Engine.",
+			"platform": "linux",
+			"logo": "https://www.percona.com/sites/default/files/logo_0_1.png",
+			"image": "percona",
+			"env": [
+				{
+					"name": "PUID",
+					"label": "PUID",
+					"default": "1024",
+					"description": "for UserID"
+				},
+				{
+					"name": "PGID",
+					"label": "PGID",
+					"default": "100",
+					"description": "for GroupID"
+				},
+				{
+					"name": "MYSQL_RANDOM_ROOT_PASSWORD",
+					"label": "MYSQL_RANDOM_ROOT_PASSWORD",
+					"default": "yes",
+					"description": "Generate a random initial password for the root user. yes/no"
+				},
+				{
+					"name": "MYSQL_ROOT_PASSWORD",
+					"label": "MYSQL_ROOT_PASSWORD",
+					"default": "",
+					"description": "Your default root password. Leave plank if you are using Mysql_Random_Root_Password."
+				}								
+			],
+			"ports": [
+				"3306:3306/tcp"
+			],
+			"volumes": [
+			{
+				"container": "/var/lib/mysql",
+				"bind": "/volume1/percona/mysql"
+			}
+			],
+			"restart_policy": "unless-stopped"
+		},
+		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "n8n is an extendable workflow automation tool.",
+			"env": [
+				{
+					"default": "true",
+					"label": "N8N_BASIC_AUTH_ACTIVE",
+					"name": "N8N_BASIC_AUTH_ACTIVE"
+				},
+				{
+					"default": "admin",
+					"label": "N8N_BASIC_AUTH_USER",
+					"name": "N8N_BASIC_AUTH_USER"
+				},
+				{
+					"default": "admin",
+					"label": "N8N_BASIC_AUTH_PASSWORD",
+					"name": "N8N_BASIC_AUTH_PASSWORD"
+				}
+			],
+			"image": "n8nio/n8n:latest",
+			"logo": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/n8n.jpg",
+			"name": "n8n",
+			"note": "<b>Template created by Pi-Hosted Series</b><br><b>Check our Github page: <a href=\"https://github.com/pi-hosted/pi-hosted\" target=\"_blank\">https://github.com/pi-hosted/pi-hosted</a></b><br><br><b>Official Webpage: </b><a href=\"https://n8n.io/\" target=\"_blank\">https://n8n.io/</a><br><b>Official Docker Documentation: </b><a href=\"https://docs.n8n.io/getting-started/installation/#docker\" target=\"_blank\">https://docs.n8n.io/getting-started/installation/#docker</a><br><br><br>Documentation is Available <a href='https://docs.n8n.io/'>here</a>",
+			"platform": "linux",
+			"ports": [
+				"5678:5678/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "n8n",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/volume1/n8n/data",
+					"container": "/home/node/.n8n"
+				}
+			]
+		}								
 	]
 }
