@@ -7622,7 +7622,7 @@
 					"label": "PGID",
 					"default": "100",
 					"description": "for GroupID"
-				},
+				}
 			],
 			"ports": [
 				"3001:3001/tcp"
